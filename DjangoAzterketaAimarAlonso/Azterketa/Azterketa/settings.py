@@ -73,12 +73,16 @@ WSGI_APPLICATION = 'Azterketa.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+DATABASES = { 
+    'default':{ 
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'azterketa',
+        'USER': 'root',
+        'PASSWORD': 'Admin123',
+        'HOST': 'localhost',
+        'PORT': '3306', 
+        } 
     }
-}
 
 
 # Password validation
@@ -105,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Madrid'
 
 USE_I18N = True
 
