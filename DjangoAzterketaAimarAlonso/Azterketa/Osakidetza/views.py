@@ -55,3 +55,14 @@ def medikuak_delete(request, variable):
         return redirect('mediku')  # Redirecciona a la lista de casas
     
     return render(request, 'delete.html', {'medikua': medikua})
+def medikuak_edit(request, variable):
+    medikua = get_object_or_404(Mediku, id=variable)  
+    if request.method == 'POST':
+        form = MedikuForm(request.POST, instance=medikua) 
+        if form.is_valid():  
+            form.save() 
+            return redirect('mediku') 
+    else:
+        form = MedikuForm(instance=medikua)  
+
+    return render(request, 'edit.html', {'form': form, 'medikua': medikua})

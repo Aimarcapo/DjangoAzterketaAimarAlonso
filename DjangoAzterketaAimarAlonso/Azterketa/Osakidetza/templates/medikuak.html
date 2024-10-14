@@ -15,7 +15,7 @@
         <td>{{medikua.izena}}</td>
         <td>{{medikua.abizena}}</td>
         <td>{{medikua.adina}}</td>
-        <td><a href="{% url 'mediku-delete'  medikua.id %}"><span class="glyphicon glyphicon-plus">Kendu</span></a></td>
+        <td><a href="{% url 'mediku-edit'  medikua.id %}"><span class="glyphicon glyphicon-plus">Aldatu</span></a><a href="{% url 'mediku-delete'  medikua.id %}"><span class="glyphicon glyphicon-plus">Kendu</span></a></td>
     </tr>
     {% endfor %}
 </table>

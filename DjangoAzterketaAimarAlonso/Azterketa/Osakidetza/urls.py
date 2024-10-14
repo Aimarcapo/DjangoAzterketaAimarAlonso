@@ -9,4 +9,5 @@ urlpatterns=[
   path('Medikua/', views.medikuak, name='mediku'),
   path('Medikua/new', views.medikuak_new, name='mediku-new'),
   path('Medikua/delete/<int:variable>', views.medikuak_delete, name='mediku-delete'),
+  path('Medikua/edit/<int:variable>', views.medikuak_edit, name='mediku-edit'),
 ]
