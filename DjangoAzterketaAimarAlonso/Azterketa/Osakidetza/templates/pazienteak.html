@@ -7,6 +7,7 @@
         <th>Etxea</th>
         <th>Hasiera data</th>
         <th>Bukaera data</th>
+        <th>Editatu/Kendu</th>
     </tr>
     {% for pazientea in pazienteak %}
     <tr>
@@ -15,11 +16,11 @@
         <td>{{pazientea.izena}}</td>
         <td>{{pazientea.abizena}}</td>
         <td>{{pazientea.gaixotasuna}}</td>
-        
+        <td><a href="{% url 'paziente-edit'  pazientea.dni %}"><span class="glyphicon glyphicon-plus">Pazientea aldatu</span></a></td>
            
         
     </tr>
-
+    
 
 
 
