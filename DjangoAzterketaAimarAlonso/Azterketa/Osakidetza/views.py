@@ -9,8 +9,8 @@ def pazienteak_new(request):
     if request.method == 'POST':        
         form=PazienteForm(request.POST)       
         if form.is_valid:            
-            ikasle = form.save()            
-            ikasle.save()        
+            paziente = form.save()            
+            paziente.save()        
             return redirect('paziente')
     else:        
         form=PazienteForm()        
@@ -37,3 +37,13 @@ def pazienteak_edit(request, variable):
 def medikuak(request):
     medikuak=Mediku.objects.all
     return render(request, 'medikuak.html', {'medikuak':medikuak })
+def medikuak_new(request):    
+    if request.method == 'POST':        
+        form=MedikuForm(request.POST)       
+        if form.is_valid:            
+            mediku = form.save()            
+            mediku.save()        
+            return redirect('mediku')
+    else:        
+        form=MedikuForm()        
+        return render(request, 'mediku_new.html', {'form':form})
