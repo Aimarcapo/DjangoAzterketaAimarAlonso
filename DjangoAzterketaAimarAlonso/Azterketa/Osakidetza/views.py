@@ -15,14 +15,22 @@ def pazienteak_new(request):
     else:        
         form=PazienteForm()        
         return render(request, 'paziente_new.html', {'form':form})
-def pazienteak_edit(request, variable):
-    pazientea = get_object_or_404(Paziente, dni=variable)  # Obtén la nota o muestra un error 404, despues del modelo ponemos el nombre del campo de ese modelo que hemos puesto en models.py en este caso matrikula y despues del igual ponemos el nombre que se va a pasar por el enlace
+def pazienteak_delete(request, variable):
+    pazientea = get_object_or_404(Paziente, dni=variable)  # Busca por el nombre 'izena'
+
     if request.method == 'POST':
-        form = PazienteForm(request.POST, instance=pazientea)  # Crea un formulario con la instancia de la nota
-        if form.is_valid():  # Verifica si el formulario es válido
-            form.save()  # Guarda los cambios en la nota
-            return redirect('paziente')  # Redirige a la lista de notas después de editar
+        pazientea.delete()  # Elimina la casa
+        return redirect('paziente')  # Redirecciona a la lista de casas
+    
+    return render(request, 'paziente_delete.html', {'pazientea': pazientea})
+def pazienteak_edit(request, variable):
+    pazientea = get_object_or_404(Paziente, dni=variable)  
+    if request.method == 'POST':
+        form = PazienteForm(request.POST, instance=pazientea) 
+        if form.is_valid():  
+            form.save() 
+            return redirect('paziente') 
     else:
-        form = PazienteForm(instance=pazientea)  # Carga el formulario con los datos actuales de la nota
+        form = PazienteForm(instance=pazientea)  
 
     return render(request, 'paziente_edit.html', {'form': form, 'pazientea': pazientea})
