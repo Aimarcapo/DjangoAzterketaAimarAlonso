@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Izena</th>
+        <th>Abizena</th>
+        <th>Adina</th>
+        <th>Editatu/Kendu</th>
+    </tr>
+    {% for medikua in medikuak %}
+    <tr>
+        <td>{{medikua.id}}</td>
+        <td>{{medikua.izena}}</td>
+        <td>{{medikua.abizena}}</td>
+        <td>{{medikua.adina}}</td>
+        <td></td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'paziente' %}"><span class="glyphicon glyphicon-plus">Pazienteak ikusi</span></a>
+
+{% endblock content %}

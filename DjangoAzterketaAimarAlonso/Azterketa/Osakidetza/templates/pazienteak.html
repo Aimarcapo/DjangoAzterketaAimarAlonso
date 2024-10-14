@@ -3,10 +3,10 @@
 {% block content %}
 <table border="1">
     <tr>
-        <th>Pertsona</th>
-        <th>Etxea</th>
-        <th>Hasiera data</th>
-        <th>Bukaera data</th>
+        <th>DNI</th>
+        <th>Izena</th>
+        <th>Abizena</th>
+        <th>Gaixotasuna</th>
         <th>Editatu/Kendu</th>
     </tr>
     {% for pazientea in pazienteak %}
@@ -29,5 +29,5 @@
     {% endfor %}
 </table>
 <a href="{% url 'paziente-new' %}"><span class="glyphicon glyphicon-plus">Paziente berria gehitu</span></a>
-
+<a href="{% url 'mediku' %}"><span class="glyphicon glyphicon-plus">Medikuak ikusi</span></a>
 {% endblock content %}

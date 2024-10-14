@@ -34,3 +34,6 @@ def pazienteak_edit(request, variable):
         form = PazienteForm(instance=pazientea)  
 
     return render(request, 'paziente_edit.html', {'form': form, 'pazientea': pazientea})
+def medikuak(request):
+    medikuak=Mediku.objects.all
+    return render(request, 'medikuak.html', {'medikuak':medikuak })
