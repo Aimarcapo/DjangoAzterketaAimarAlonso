@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Eliminar Paziente</h2>
-
+<h1>Ezabatu</h1>
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}  <!-- Muestra el campo de selección de la casa -->
-    <button type="submit" class="btn btn-danger">Eliminar Paziente</button>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
 </form>
 
 {% endblock %}

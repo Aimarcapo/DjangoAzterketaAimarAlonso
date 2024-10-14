@@ -22,7 +22,7 @@ def pazienteak_delete(request, variable):
         pazientea.delete()  # Elimina la casa
         return redirect('paziente')  # Redirecciona a la lista de casas
     
-    return render(request, 'paziente_delete.html', {'pazientea': pazientea})
+    return render(request, 'delete.html', {'pazientea': pazientea})
 def pazienteak_edit(request, variable):
     pazientea = get_object_or_404(Paziente, dni=variable)  
     if request.method == 'POST':
@@ -33,7 +33,7 @@ def pazienteak_edit(request, variable):
     else:
         form = PazienteForm(instance=pazientea)  
 
-    return render(request, 'paziente_edit.html', {'form': form, 'pazientea': pazientea})
+    return render(request, 'edit.html', {'form': form, 'pazientea': pazientea})
 def medikuak(request):
     medikuak=Mediku.objects.all
     return render(request, 'medikuak.html', {'medikuak':medikuak })
@@ -47,3 +47,11 @@ def medikuak_new(request):
     else:        
         form=MedikuForm()        
         return render(request, 'mediku_new.html', {'form':form})
+def medikuak_delete(request, variable):
+    medikua = get_object_or_404(Mediku, id=variable)  # Busca por el nombre 'izena'
+
+    if request.method == 'POST':
+        medikua.delete()  # Elimina la casa
+        return redirect('mediku')  # Redirecciona a la lista de casas
+    
+    return render(request, 'delete.html', {'medikua': medikua})
