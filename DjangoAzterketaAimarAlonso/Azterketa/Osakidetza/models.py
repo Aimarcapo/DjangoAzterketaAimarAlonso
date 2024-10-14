@@ -18,7 +18,7 @@ class Paziente(models.Model):
     gaixotasuna = models.CharField(max_length=100)
     
     def __str__(self):
-        return f"Pertsona {self.dni}  {self.izena} {self.abizena} {self.emaila}."
+        return f"Pertsona {self.dni}  {self.izena} {self.abizena} {self.gaixotasuna}."
     
 class Zita(models.Model):
 
