@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'Azterketa.wsgi.application'
 DATABASES = { 
     'default':{ 
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'azterketa',
+        'NAME': 'osakidetza',
         'USER': 'root',
         'PASSWORD': 'Admin123',
         'HOST': 'localhost',

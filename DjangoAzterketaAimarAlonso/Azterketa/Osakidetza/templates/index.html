@@ -3,21 +3,18 @@
 {% block content %}
 <table border="1">
     <tr>
-        <th>Pertsona</th>
-        <th>Etxea</th>
-        <th>Hasiera data</th>
-        <th>Bukaera data</th>
+        <th>Id</th>
+        <th>Data</th>
+        <th>Pazientea</th>
+        <th>Aldatu</th>
     </tr>
-    {% for alokairua in alokairuak %}
+    {% for zita in zitak %}
     <tr>
            
-
-        <td>{{alokairua.pertsona.izena}} {{alokairua.pertsona.abizena}}</td>
-        <td>{{alokairua.etxea}}</td>
-        <td>{{alokairua.alokairu_data_hasi}}</td>
-        <td>{{alokairua.alokairu_data_bukatu}}</td>
-           
-        
+        <td>{{zita.id}}</td>
+        <td>{{zita.data}}</td>
+        <td>{{zita.paziente}}</td>
+         <td><a href="{% url 'zita-edit'  zita.id %}"><span class="glyphicon glyphicon-plus">Aldatu</span></a><a href="{% url 'zita-delete'  zita.id %}"><span class="glyphicon glyphicon-plus">Ezabatu</span></a></td>
     </tr>
 
 
@@ -26,7 +23,7 @@
 
     {% endfor %}
 </table>
-<a href="/pertsona/">Pertsonak ikusi</a>
-<a href="/gehitualokairua/">Gehitu alokairua</a>
-<a href="/etxea/">Etxeak ikusi</a>
+<a href="{% url 'zita-new' %}"><span class="glyphicon glyphicon-plus">Zita berria gehitu</span></a>
+<a href="{% url 'paziente' %}"><span class="glyphicon glyphicon-plus">Pazienteak ikusi</span></a>
+<a href="{% url 'mediku' %}"><span class="glyphicon glyphicon-plus">Medikuak ikusi</span></a>
 {% endblock content %}

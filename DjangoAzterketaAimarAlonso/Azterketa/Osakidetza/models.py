@@ -11,6 +11,7 @@ class Mediku(models.Model):
     def __str__(self):
        return f"Mediku {self.id} {self.izena}  {self.abizena} {self.adina}."
     
+
 class Paziente(models.Model):
     dni = models.AutoField(primary_key=True)    
     izena = models.CharField(max_length=100)
@@ -19,12 +20,9 @@ class Paziente(models.Model):
     
     def __str__(self):
         return f"Paziente {self.dni}  {self.izena} {self.abizena} {self.gaixotasuna}."
-    
 class Zita(models.Model):
-
-    mediku = models.ForeignKey(Mediku,on_delete=models.CASCADE)
-    paziente = models.ForeignKey(Paziente,on_delete=models.CASCADE)
-
+    id = models.AutoField(primary_key=True)   
     data = models.DateField(null=True)
+    paziente = models.ForeignKey(Paziente,on_delete=models.CASCADE)
     def __str__(self):
-       return f"Zita {self.mediku}  {self.paziente} {self.data} ."
+       return f"Zita  {self.data} {self.paziente} ."

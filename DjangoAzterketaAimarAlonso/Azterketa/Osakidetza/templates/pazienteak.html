@@ -18,6 +18,7 @@
         <td>{{pazientea.gaixotasuna}}</td>
         <td><a href="{% url 'paziente-edit'  pazientea.dni %}"><span class="glyphicon glyphicon-plus">Aldatu</span></a>
             <a href="{% url 'paziente-delete'  pazientea.dni %}"><span class="glyphicon glyphicon-plus">Kendu</span></a></td>
+           
            
         
     </tr>
@@ -29,5 +30,7 @@
     {% endfor %}
 </table>
 <a href="{% url 'paziente-new' %}"><span class="glyphicon glyphicon-plus">Paziente berria gehitu</span></a>
+
 <a href="{% url 'mediku' %}"><span class="glyphicon glyphicon-plus">Medikuak ikusi</span></a>
+<a href="{% url 'index' %}"><span class="glyphicon glyphicon-plus">Zitak ikusi</span></a>
 {% endblock content %}

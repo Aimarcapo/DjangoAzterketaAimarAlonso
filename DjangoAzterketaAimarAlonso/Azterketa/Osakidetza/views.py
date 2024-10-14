@@ -66,3 +66,37 @@ def medikuak_edit(request, variable):
         form = MedikuForm(instance=medikua)  
 
     return render(request, 'edit.html', {'form': form, 'medikua': medikua})
+def zitak(request):
+    zitak=Zita.objects.all
+    return render(request, 'index.html', {'zitak':zitak })
+def zitak_new(request):    
+    if request.method == 'POST':        
+        form=ZitaForm(request.POST)       
+        if form.is_valid:            
+            zita = form.save()            
+            zita.save()        
+            return redirect('index')
+    else:        
+        form=ZitaForm()        
+        return render(request, 'zita_new.html', {'form':form})
+def zitak_edit(request, id):
+    zita = get_object_or_404(Zita, id=id)  
+    if request.method == 'POST':
+        form = ZitaForm(request.POST, instance=zita) 
+        if form.is_valid():  
+            form.save() 
+            return redirect('index') 
+    else:
+        form = ZitaForm(instance=zita)  
+
+    return render(request, 'edit.html', {'form': form, 'zita': zita})
+def zita_delete(request, id):
+    zita = get_object_or_404(Zita, id=id)  # Busca por el nombre 'izena'
+
+    if request.method == 'POST':
+        zita.delete()  # Elimina la casa
+        return redirect('index')  # Redirecciona a la lista de casas
+    
+    return render(request, 'delete.html', {'zita': zita})
+
+
