@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table border="1">
+    <tr>
+        <th>Pertsona</th>
+        <th>Etxea</th>
+        <th>Hasiera data</th>
+        <th>Bukaera data</th>
+    </tr>
+    {% for pazientea in pazienteak %}
+    <tr>
+           
+        <td>{{pazientea.dni}}</td>
+        <td>{{pazientea.izena}}</td>
+        <td>{{pazientea.abizena}}</td>
+        <td>{{pazientea.gaixotasuna}}</td>
+        
+           
+        
+    </tr>
+
+
+
+
+
+    {% endfor %}
+</table>
+
+{% endblock content %}
